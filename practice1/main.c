@@ -3,6 +3,8 @@ extern void print_input(void);
 extern void compress_multiple_blanks_to_single(void);
 extern void replace_escape_chars(void);
 extern void word_count(void);
+extern void word_per_line(void);
+extern void char_count(void);
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +12,9 @@ int main(int argc, char *argv[])
     //print_input();
     //compress_multiple_blanks_to_single();
     //replace_escape_chars();
-    word_count();
+    //word_count();
+    //word_per_line();
+    char_count();
+
     return 0;
 }

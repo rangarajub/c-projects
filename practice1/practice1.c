@@ -128,3 +128,55 @@ void word_count(void)
     printf("No of words: %d\n", nw);
     printf("No of lines: %d\n", nl);
 }
+
+void word_per_line(void)
+{
+    int c;
+    int state = OUT;
+
+    while((c = getchar()) != EOF)
+    {
+        if(c == ' ' || c == '\t' || c == '\n')
+        {
+            if(state == IN)
+            {
+                putchar('\n');
+                state = OUT;
+            }    
+        } 
+        else if (state == OUT) 
+        {
+            state = IN;
+            putchar(c);
+        }
+        else
+            putchar(c);
+    }
+}
+
+void char_count(void)
+{
+    int ndigit[10], nwhite, nother, c, i;
+
+    nwhite = nother = 0;
+    for(i = 0; i < 10; i++)
+        ndigit[i] = 0;
+
+    while((c = getchar()) != EOF)
+    {
+        if(c >= '0' && c <= '9')
+            ++ndigit[c - '0'];
+        else if(c == ' ' || c == '\t' || c == '\n')
+            ++nwhite;
+        else
+            ++nother;
+
+    }
+
+    printf("**************\n");
+    for(i = 0; i < 10; i++)
+        printf("Count[%d] = %d\n", i, ndigit[i]);
+    printf("**************\n");
+    printf("Whitespace chars count = %d\n", nwhite);
+    printf("Other chars count = %d\n", nother);
+}
