@@ -147,11 +147,12 @@ int insert_node_at_node_with_match_data(list_t *pList, int data, int match_data)
 
     if(pCurrent->data == match_data)
     {
+        printf("Node with Match Data %d found in the list\n", match_data);
+
         node_t *pNode = create_node(data);
         if(!pNode)
             return -1;
 
-        pNode->data = data;
         pNode->pNext = pCurrent->pNext;
         pCurrent->pNext = pNode;
         if(pCurrent == pList->pTail)
